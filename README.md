@@ -4,7 +4,7 @@ Tasks from CheckiO.org (Python)
 
 Solved 23/328 tasks
 
-Elementary (20/20)
+Elementary (19/19)
 
 Home (3/10)
 
