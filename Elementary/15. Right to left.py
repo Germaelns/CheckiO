@@ -1,15 +1,16 @@
 def left_join(phrases):
-    message = ""
-    for word in phrases:
-        if word == phrases[-1]:
-            message += word
-        elif word[-1] is not ",":
-            word += ","
-            message += word
-        else:
-            message += word
-
-    return message.replace("right", "left")
+    # message = ""
+    # for word in phrases:
+    #     if word == phrases[-1]:
+    #         message += word
+    #     elif word[-1] is not ",":
+    #         word += ","
+    #         message += word
+    #     else:
+    #         message += word
+    #
+    # return message.replace("right", "left")
+    return (",".join(phrases)).replace("right", "left")
 
 
 if __name__ == '__main__':
