@@ -1,6 +1,4 @@
-# CheckiO
-
-Tasks from CheckiO.org (Python)
+<h1>Tasks from CheckiO.org (Python)</h1>
 
 Solved 23/328 tasks
 
