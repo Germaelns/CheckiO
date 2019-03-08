@@ -11,20 +11,8 @@ Output: The angle of the sun, rounded to 2 decimal places.
 
 
 def sun_angle(time):
-
-    deg_hour = 180/12
-    deg_minute = deg_hour/60
-
-    not_see = list()
-    for item in range(1, 6):
-        not_see.append("0"+str(item))
-    for item in range(19, 24):
-        not_see.append(str(item))
-
-    if time[:2] in not_see or (time[:2] == "18" and int(time[-2:]) > 0):
-        return "I don't see the sun!"
-    else:
-        return ((int(time[:2])-6)*deg_hour)+(float(time[-2:])*deg_minute)
+    t = int(time[:2]) * 15 + int(time[3:]) / 4 - 90
+    return t if 0 <= t <= 180 else "I don't see the sun!"
 
 
 if __name__ == '__main__':
