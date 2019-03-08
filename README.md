@@ -4,6 +4,6 @@ Solved 32/328 tasks
 
 Elementary (19/19)
 
-Home (11/13)
+Home (13/13)
 
 Escher(2/15)
