@@ -1,6 +1,6 @@
 <h1>Tasks from CheckiO.org (Python)</h1>
 
-Solved 32/328 tasks
+Solved 34/328 tasks
 
 Elementary (19/19)
 
