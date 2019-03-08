@@ -25,10 +25,7 @@ def fight(unit_1, unit_2):
             unit_1.health -= unit_2.damage
             r += 1
 
-    if unit_1.is_alive:
-        return True
-    else:
-        return False
+    return unit_1.is_alive
 
 
 if __name__ == '__main__':
