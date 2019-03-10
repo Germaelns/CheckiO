@@ -1,9 +1,6 @@
 def house(plan):
 
-    plan = plan.splitlines()
-
-    if plan[0] == '':
-        plan.remove('')
+    plan = plan.strip('\n').splitlines()
 
     def count() -> int:
         value = 0
