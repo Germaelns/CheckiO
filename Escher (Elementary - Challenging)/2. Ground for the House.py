@@ -1,48 +1,37 @@
-import copy
-
-
 def house(plan):
 
     plan = plan.splitlines()
 
-    def rotate(matrix) -> list:
-        rotate_matrix = copy.deepcopy(matrix)
-
-        return rotate_matrix
+    if plan[0] == '':
+        plan.remove('')
 
     def count() -> int:
         value = 0
         remove = list()
-        for index in range(0, len(plan)):
-            if "#" in plan[index]:
-                value += 1
-            else:
-                remove.append(index)
 
-        remove = sorted(remove, reverse=True)
-        for index in remove:
+        for string in plan:
+            if "#" in string:
+                value += 1
+            elif "#" not in string and (string == plan[0] or string == plan[-1]):
+                remove.append(plan.index(string))
+            else:
+                value += 1
+
+        for index in sorted(remove, reverse=True):
             plan.remove(plan[index])
 
         return value
 
     height = count()
 
-    plan = rotate(plan)
+    plan = list(zip(*plan))
 
     weight = count()
 
-    return height*weight
+    return height * weight
 
 
 if __name__ == '__main__':
-    print("Example:")
-    print(house('''
-0000000
-##00##0
-######0
-##00##0
-#0000#0
-'''))
 
     # These "asserts" using only for self-checking and not necessary for auto-testing
     assert house('''
