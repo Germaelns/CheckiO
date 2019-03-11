@@ -28,7 +28,7 @@ def probability(dice_number, sides, target):
             buffer['2d{}'.format(sides)] = counts
 
             if '{}d{}'.format(dice_number, sides) == '2d{}'.format(sides):
-                return float(format(buffer['2d{}'.format(sides)][target], '.4f'))
+                return buffer['2d{}'.format(sides)][target]
 
         two_dice = buffer['2d{}'.format(sides)]
 
@@ -55,7 +55,7 @@ def probability(dice_number, sides, target):
                     row += 1
                     for j in range(0, len(i)):
                         if number == num_matrix[row][j]:
-                            counts[number] = counts[number] + (1/sides * two_dice[row + dice - 1])
+                            counts[number] = counts[number] + 1/sides * two_dice[row + dice - 1]
 
             if '{}d{}'.format(dice, sides) not in buffer:
                 buffer['{}d{}'.format(dice, sides)] = counts
@@ -70,10 +70,9 @@ if __name__ == '__main__':
         return correct - precision < checked < correct + precision
 
 
-    # assert (almost_equal(probability(2, 6, 3), 0.0556)), "Basic example"
-    # assert (almost_equal(probability(2, 6, 4), 0.0833)), "More points"
-    # assert (almost_equal(probability(2, 6, 7), 0.1667)), "Maximum for two 6-sided dice"
-    # assert (almost_equal(probability(2, 3, 5), 0.2222)), "Small dice"
-    # assert (almost_equal(probability(2, 3, 7), 0.0000)), "Never!"
-    # assert (almost_equal(probability(3, 6, 7), 0.0694)), "Three dice"
-    assert (almost_equal(probability(10, 10, 50), 0.0375)), "Many dice, many sides"
+    assert (almost_equal(probability(2, 6, 3), 0.0556)), "Basic example"
+    assert (almost_equal(probability(2, 6, 4), 0.0833)), "More points"
+    assert (almost_equal(probability(2, 6, 7), 0.1667)), "Maximum for two 6-sided dice"
+    assert (almost_equal(probability(2, 3, 5), 0.2222)), "Small dice"
+    assert (almost_equal(probability(2, 3, 7), 0.0000)), "Never!"
+    assert (almost_equal(probability(3, 6, 7), 0.0694)), "Three dice"
