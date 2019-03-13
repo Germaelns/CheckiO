@@ -2,31 +2,21 @@ def checkio(expression):
     if expression.isupper() or expression.islower():
         return False
 
-    brackets = list()
     for symbol in expression:
-        if symbol in "(){}[]":
-            brackets.append(symbol)
-    counter = 0
-    for i in range(0, len(brackets)):
-        if brackets[i] in "{[(":
-            counter += 1
-            if counter > len(brackets) / 2:
-                return False
-        elif brackets[i] in "]})":
-            if brackets[i] == ']' and brackets[i-1] == '[':
-                brackets.remove(brackets[i])
-                brackets.remove(brackets[i-1])
-            elif brackets[i] == ')' and brackets[i-1] == '(':
-                brackets.remove(brackets[i])
-                brackets.remove(brackets[i-1])
-            elif brackets[i] == '}' and brackets[i-1] == '{':
-                brackets.remove(brackets[i])
-                brackets.remove(brackets[i-1])
+        if symbol not in "(){}[]":
+            expression = expression.replace(symbol, "")
 
-    if len(brackets):
-        return False
-    else:
-        return True
+    while len(expression) > 0:
+        if "()" in expression:
+            expression = expression.replace("()", "")
+        elif "{}" in expression:
+            expression = expression.replace("{}", "")
+        elif "[]" in expression:
+            expression = expression.replace("[]", "")
+        else:
+            return False
+
+    return True
 
 
 # These "asserts" using only for self-checking and not necessary for auto-testing
